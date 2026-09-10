@@ -245,9 +245,10 @@ it-service-desk/
 ├── .gitignore
 └── README.md
 
+---
+
 ### Prerequisites
 Make sure the following are installed:
-
 # Node.js 18+
 # npm
 # Git
