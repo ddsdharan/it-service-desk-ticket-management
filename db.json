@@ -1,0 +1,471 @@
+{
+  "users": [
+    {
+      "id": "u001",
+      "fullName": "System Administrator",
+      "email": "admin@servicedesk.com",
+      "phone": "9876543210",
+      "department": "IT Administration",
+      "role": "admin",
+      "status": "active",
+      "createdAt": "2026-01-10T09:00:00Z",
+      "password": "Admin@123"
+    },
+    {
+      "id": "u002",
+      "fullName": "Arun Kumar",
+      "email": "agent@servicedesk.com",
+      "phone": "9876543211",
+      "department": "IT Support",
+      "role": "support_agent",
+      "status": "active",
+      "createdAt": "2026-01-12T09:00:00Z",
+      "password": "Agent@123"
+    },
+    {
+      "id": "u003",
+      "fullName": "Priya Sharma",
+      "email": "employee@servicedesk.com",
+      "phone": "9876543212",
+      "department": "Finance",
+      "role": "employee",
+      "status": "active",
+      "createdAt": "2026-01-15T09:00:00Z",
+      "password": "Employee@123"
+    },
+    {
+      "fullName": "Sasidharan",
+      "email": "ddsd@servicedesk.com",
+      "phone": "+91 9677512061",
+      "department": "IT - Software developer",
+      "role": "employee",
+      "status": "active",
+      "password": "Sasidharan@123",
+      "createdAt": "2026-09-09T19:14:53.990Z",
+      "id": "tTlbBBcJWPE"
+    },
+    {
+      "fullName": "Max",
+      "email": "agentmax@servicedesk.com",
+      "phone": "+91 9875452222",
+      "department": "IT",
+      "role": "support_agent",
+      "status": "active",
+      "password": "Agent@123",
+      "createdAt": "2026-09-09T23:33:14.822Z",
+      "id": "kLQiU-F"
+    }
+  ],
+  "tickets": [
+    {
+      "id": "TKT-1001",
+      "subject": "Laptop not connecting to Wi-Fi",
+      "description": "Unable to connect office laptop to the corporate Wi-Fi network.",
+      "createdBy": "u003",
+      "assignedAgent": null,
+      "categoryId": "cat-network",
+      "priority": "high",
+      "status": "pending",
+      "preferredContactMethod": "email",
+      "createdAt": "2026-09-01T09:30:00.000Z",
+      "updatedAt": "2026-09-09T03:36:38.823Z",
+      "dueDate": "2026-09-05T17:00:00.000Z",
+      "resolution": null,
+      "resolutionNotes": null,
+      "resolutionDate": null
+    },
+    {
+      "id": "TKT-1002",
+      "subject": "Software installation request",
+      "description": "Request to install approved project management software.",
+      "createdBy": "u003",
+      "assignedAgent": null,
+      "categoryId": "cat-software",
+      "priority": "medium",
+      "status": "cancelled",
+      "preferredContactMethod": "chat",
+      "createdAt": "2026-09-02T10:00:00.000Z",
+      "updatedAt": "2026-09-09T23:38:31.848Z",
+      "dueDate": "2026-09-07T17:00:00.000Z",
+      "resolution": null,
+      "resolutionNotes": null,
+      "resolutionDate": null
+    },
+    {
+      "id": "TKT-1003",
+      "subject": "Email account access issue",
+      "description": "Employee cannot access the company email account.",
+      "createdBy": "u003",
+      "assignedAgent": null,
+      "categoryId": "cat-email",
+      "priority": "critical",
+      "status": "in_progress",
+      "preferredContactMethod": "phone",
+      "createdAt": "2026-09-03T08:45:00.000Z",
+      "updatedAt": "2026-09-09T23:32:21.870Z",
+      "dueDate": "2026-09-04T17:00:00.000Z",
+      "resolution": null,
+      "resolutionNotes": null,
+      "resolutionDate": null
+    },
+    {
+      "id": "TKT-1004",
+      "subject": "Monitor replacement",
+      "description": "Existing monitor has developed display issues and requires replacement.",
+      "createdBy": "u003",
+      "assignedAgent": "u002",
+      "categoryId": "cat-hardware",
+      "priority": "critical",
+      "status": "closed",
+      "preferredContactMethod": "email",
+      "createdAt": "2026-09-04T09:10:00.000Z",
+      "updatedAt": "2026-09-09T18:30:10.798Z",
+      "dueDate": "2026-09-10T17:00:00.000Z",
+      "resolution": "Monitor replaced and fixed the fault",
+      "resolutionNotes": "Damaged display module was replaced with new one and issue fixed",
+      "resolutionDate": "2026-09-09T18:29:53.374Z"
+    },
+    {
+      "id": "TKT-1005",
+      "subject": "VPN connection problem",
+      "description": "VPN disconnects frequently while working remotely.",
+      "createdBy": "u003",
+      "assignedAgent": "u002",
+      "categoryId": "cat-network",
+      "priority": "high",
+      "status": "resolved",
+      "preferredContactMethod": "chat",
+      "createdAt": "2026-08-28T09:00:00.000Z",
+      "updatedAt": "2026-09-01T16:00:00.000Z",
+      "dueDate": "2026-09-01T17:00:00.000Z",
+      "resolution": "VPN client configuration updated.",
+      "resolutionNotes": "Reinstalled VPN profile and verified connectivity.",
+      "resolutionDate": "2026-09-01T16:00:00.000Z"
+    },
+    {
+      "id": "TKT-1006",
+      "subject": "Access request for shared drive",
+      "description": "Requesting access to the Finance shared drive.",
+      "createdBy": "u003",
+      "assignedAgent": null,
+      "categoryId": "cat-access",
+      "priority": "medium",
+      "status": "closed",
+      "preferredContactMethod": "email",
+      "createdAt": "2026-09-05T11:30:00.000Z",
+      "updatedAt": "2026-09-09T23:31:36.721Z",
+      "dueDate": "2026-09-08T17:00:00.000Z",
+      "resolution": "Network adapter was reset and the device was successfully reconnected to the finance network.",
+      "resolutionNotes": "The network connection was tested after the reset and confirmed to be stable.",
+      "resolutionDate": "2026-09-09T18:14:05.585Z"
+    },
+    {
+      "id": "TKT-1007",
+      "subject": "Security software alert",
+      "description": "Security software is displaying a repeated warning on the workstation.",
+      "createdBy": "u003",
+      "assignedAgent": "u002",
+      "categoryId": "cat-security",
+      "priority": "critical",
+      "status": "closed",
+      "preferredContactMethod": "phone",
+      "createdAt": "2026-08-25T08:30:00.000Z",
+      "updatedAt": "2026-08-30T15:45:00.000Z",
+      "dueDate": "2026-08-28T17:00:00.000Z",
+      "resolution": "Security software updated successfully.",
+      "resolutionNotes": "Updated security definitions and completed system scan.",
+      "resolutionDate": "2026-08-30T15:00:00.000Z"
+    },
+    {
+      "id": "TKT-1788988030568",
+      "subject": "Test",
+      "description": "This is a description for test",
+      "createdBy": "u001",
+      "assignedAgent": null,
+      "categoryId": "cat-database",
+      "priority": "critical",
+      "status": "open",
+      "preferredContactMethod": "chat",
+      "createdAt": "2026-09-09T21:07:10.568Z",
+      "updatedAt": "2026-09-09T21:07:10.568Z",
+      "dueDate": null,
+      "resolution": null,
+      "resolutionNotes": null,
+      "resolutionDate": null
+    },
+    {
+      "id": "TKT-1788988160339",
+      "subject": "Database connectivity issue",
+      "description": "Unable to connect to the database from my workstation.",
+      "createdBy": "u001",
+      "assignedAgent": null,
+      "categoryId": "cat-database",
+      "priority": "high",
+      "status": "open",
+      "preferredContactMethod": "phone",
+      "createdAt": "2026-09-09T21:09:20.339Z",
+      "updatedAt": "2026-09-09T21:09:20.339Z",
+      "dueDate": null,
+      "resolution": null,
+      "resolutionNotes": null,
+      "resolutionDate": null
+    },
+    {
+      "id": "TKT-1788991353797",
+      "subject": "Test",
+      "description": "Test ticket for pagination",
+      "createdBy": "u001",
+      "assignedAgent": null,
+      "categoryId": "cat-email",
+      "priority": "high",
+      "status": "open",
+      "preferredContactMethod": "email",
+      "createdAt": "2026-09-09T22:02:33.797Z",
+      "updatedAt": "2026-09-09T22:02:33.797Z",
+      "dueDate": null,
+      "resolution": null,
+      "resolutionNotes": null,
+      "resolutionDate": null
+    },
+    {
+      "id": "TKT-1788991390434",
+      "subject": "TestTwo",
+      "description": "This is a test ticket to test pagination",
+      "createdBy": "u001",
+      "assignedAgent": null,
+      "categoryId": "cat-security",
+      "priority": "critical",
+      "status": "in_progress",
+      "preferredContactMethod": "phone",
+      "createdAt": "2026-09-09T22:03:10.434Z",
+      "updatedAt": "2026-09-09T23:29:45.174Z",
+      "dueDate": null,
+      "resolution": null,
+      "resolutionNotes": null,
+      "resolutionDate": null
+    }
+  ],
+  "categories": [
+    {
+      "id": "cat-hardware",
+      "name": "Hardware",
+      "description": "Hardware issues related to Laptop, Mobiles, Desktops, Printers, Projectors and other hardware related issues.",
+      "status": "active",
+      "updatedAt": "2026-09-09T20:15:09.496Z"
+    },
+    {
+      "id": "cat-software",
+      "name": "Software",
+      "description": "Application and software related issues",
+      "status": "active",
+      "updatedAt": "2026-09-09T19:45:40.814Z"
+    },
+    {
+      "id": "cat-network",
+      "name": "Network",
+      "description": "Internet, Wi-Fi, VPN and network issues",
+      "status": "active",
+      "updatedAt": "2026-09-09T19:45:40.814Z"
+    },
+    {
+      "id": "cat-email",
+      "name": "Email",
+      "description": "Email and mailbox related issues",
+      "status": "active",
+      "updatedAt": "2026-09-09T19:45:40.814Z"
+    },
+    {
+      "id": "cat-security",
+      "name": "Security",
+      "description": "Security incidents and security-related requests",
+      "status": "active",
+      "updatedAt": "2026-09-09T19:45:40.814Z"
+    },
+    {
+      "id": "cat-access",
+      "name": "Access Request",
+      "description": "System and application access requests",
+      "status": "active",
+      "updatedAt": "2026-09-09T19:45:40.814Z"
+    },
+    {
+      "id": "cat-other",
+      "name": "Other",
+      "description": "Other IT support requests",
+      "status": "active",
+      "updatedAt": "2026-09-09T19:45:40.814Z"
+    },
+    {
+      "id": "cat-database",
+      "name": "Database",
+      "description": "Storage related issues",
+      "status": "active",
+      "createdAt": "2026-09-09T20:57:36.140Z",
+      "updatedAt": "2026-09-09T20:57:36.142Z"
+    },
+    {
+      "id": "cat-engineering",
+      "name": "Engineering",
+      "description": "Developers hardware and software",
+      "status": "active",
+      "createdAt": "2026-09-10T01:50:04.306Z",
+      "updatedAt": "2026-09-10T01:50:04.307Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": "z5m0fHCQEfA",
+      "ticketId": "TKT-1004",
+      "userId": "u001",
+      "content": "Test comment by Admin",
+      "createdAt": "2026-09-09T12:55:53.461Z"
+    }
+  ],
+  "activities": [
+    {
+      "id": "VPvwD71_P7c",
+      "ticketId": "TKT-1006",
+      "userId": "u001",
+      "type": "status_changed",
+      "message": "Status changed from assigned to in_progress",
+      "createdAt": "2026-09-09T12:55:01.678Z"
+    },
+    {
+      "id": "AOWMyAjygDU",
+      "ticketId": "TKT-1004",
+      "userId": "u001",
+      "type": "status_changed",
+      "message": "Status changed from open to assigned",
+      "createdAt": "2026-09-09T12:55:27.712Z"
+    },
+    {
+      "id": "BiQYypaR0gA",
+      "ticketId": "TKT-1004",
+      "userId": "u001",
+      "type": "status_changed",
+      "message": "Status changed from assigned to in_progress",
+      "createdAt": "2026-09-09T12:55:32.122Z"
+    },
+    {
+      "id": "P4lbMCmj-7o",
+      "ticketId": "TKT-1004",
+      "userId": "u001",
+      "type": "comment",
+      "message": "Added a comment",
+      "createdAt": "2026-09-09T12:55:53.461Z"
+    },
+    {
+      "id": "Bx8vK7g18T4",
+      "ticketId": "TKT-1004",
+      "userId": "u001",
+      "type": "assigned",
+      "message": "Ticket assigned to Arun Kumar",
+      "createdAt": "2026-09-09T17:49:32.662Z"
+    },
+    {
+      "id": "wMfL-hHclVI",
+      "ticketId": "TKT-1004",
+      "userId": "u002",
+      "type": "resolved",
+      "message": "Ticket resolved",
+      "createdAt": "2026-09-09T18:29:53.409Z"
+    },
+    {
+      "id": "uIRP49qbmOU",
+      "ticketId": "TKT-1004",
+      "userId": "u002",
+      "type": "status_changed",
+      "message": "Status changed from resolved to closed",
+      "createdAt": "2026-09-09T18:30:10.798Z"
+    },
+    {
+      "id": "ACT-1788996566314",
+      "ticketId": "TKT-1788991390434",
+      "userId": "u001",
+      "type": "status_changed",
+      "message": "Status changed from open to assigned",
+      "createdAt": "2026-09-09T23:29:26.261Z"
+    },
+    {
+      "id": "ACT-1788996575424",
+      "ticketId": "TKT-1788991390434",
+      "userId": "u001",
+      "type": "status_changed",
+      "message": "Status changed from assigned to in_progress",
+      "createdAt": "2026-09-09T23:29:35.392Z"
+    },
+    {
+      "id": "ACT-1788996581600",
+      "ticketId": "TKT-1788991390434",
+      "userId": "u001",
+      "type": "status_changed",
+      "message": "Status changed from in_progress to pending",
+      "createdAt": "2026-09-09T23:29:41.583Z"
+    },
+    {
+      "id": "ACT-1788996585206",
+      "ticketId": "TKT-1788991390434",
+      "userId": "u001",
+      "type": "status_changed",
+      "message": "Status changed from pending to in_progress",
+      "createdAt": "2026-09-09T23:29:45.174Z"
+    },
+    {
+      "id": "ACT-1788996650811-yxaewm",
+      "ticketId": "TKT-1006",
+      "userId": "u001",
+      "type": "unassigned",
+      "message": "Ticket unassigned from Arun Kumar",
+      "createdAt": "2026-09-09T23:30:50.811Z"
+    },
+    {
+      "id": "ACT-1788996696753",
+      "ticketId": "TKT-1006",
+      "userId": "u001",
+      "type": "status_changed",
+      "message": "Status changed from resolved to closed",
+      "createdAt": "2026-09-09T23:31:36.721Z"
+    },
+    {
+      "id": "ACT-1788996722825-vkka64",
+      "ticketId": "TKT-1003",
+      "userId": "u001",
+      "type": "unassigned",
+      "message": "Ticket unassigned from Arun Kumar",
+      "createdAt": "2026-09-09T23:32:02.825Z"
+    },
+    {
+      "id": "ACT-1788996741901",
+      "ticketId": "TKT-1003",
+      "userId": "u001",
+      "type": "status_changed",
+      "message": "Status changed from pending to in_progress",
+      "createdAt": "2026-09-09T23:32:21.870Z"
+    },
+    {
+      "id": "ACT-1788996947876-pxnwcl",
+      "ticketId": "TKT-1002",
+      "userId": "u001",
+      "type": "reassigned",
+      "message": "Ticket reassigned from Arun Kumar to Max",
+      "createdAt": "2026-09-09T23:35:47.876Z"
+    },
+    {
+      "id": "ACT-1788996978316-zs7uhv",
+      "ticketId": "TKT-1002",
+      "userId": "u001",
+      "type": "unassigned",
+      "message": "Ticket unassigned from Max",
+      "createdAt": "2026-09-09T23:36:18.316Z"
+    },
+    {
+      "id": "ACT-1788997111879",
+      "ticketId": "TKT-1002",
+      "userId": "u003",
+      "type": "status_changed",
+      "message": "Status changed from open to cancelled",
+      "createdAt": "2026-09-09T23:38:31.848Z"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
