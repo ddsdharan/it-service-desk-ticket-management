@@ -246,7 +246,7 @@ it-service-desk/
 └── README.md
 
 ---
-
+```markdown
 ### Prerequisites
 Make sure the following are installed:
 # Node.js 18+
