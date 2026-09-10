@@ -244,318 +244,355 @@ it-service-desk/
 ├── .env
 ├── .gitignore
 └── README.md
+```
 
----
-```markdown
 ### Prerequisites
+
 Make sure the following are installed:
-# Node.js 18+
-# npm
-# Git
+
+- Node.js 18+
+- npm
+- Git
 
 Verify the installations:
+```bash
 node --version
 npm --version
 git --version
-
-### Installations
-# Clone the repository: git clone https://github.com/ddsdharan/it-service-desk-ticket-management.git
-# Navigate into the project: cd it-service-desk-ticket-management
-# Install dependencies: npm install
+```
+### Installation
+```bash
+git clone https://github.com/ddsdharan/it-service-desk-ticket-management.git
+cd it-service-desk-ticket-management
+npm install
+```
 
 ### Environment Configuration
-# Create a .env file in the project root: VITE_API_BASE_URL=http://localhost:3001
-The .env file is excluded from Git using .gitignore.
+
+Create a `.env` file in the project root:
+
+```env
+VITE_API_BASE_URL=http://localhost:3001
+```
+
+The `.env` file is excluded from Git using `.gitignore`.
 
 ### Running the Application
+
 The application requires two processes:
-React/Vite frontend
-JSON Server backend
-Start JSON Server
 
-## Open a terminal in the project root and run: npm run server
+- React/Vite frontend
+- JSON Server backend
 
-## JSON Server will be available at: http://localhost:3001
-The API resources are available from this server.
+Start JSON Server:
 
-## Start React Application
-Open another terminal in the project root and run: npm run dev
+```bash
+npm run server
+```
 
-## The Vite development server will provide a local URL similar to: http://localhost:5173
+JSON Server will be available at: `http://localhost:3001`
+
+Start the React app in another terminal:
+
+```bash
+npm run dev
+```
+
+The Vite development server will provide a local URL similar to: `http://localhost:5173`
+
 Open the displayed URL in a browser.
 
 ### Demo Login Credentials
 
-The project includes sample users in db.json.
+The project includes sample users in `db.json`.
 
-## Admin
-Email: admin@servicedesk.com
-Password: Admin@123
-Role: Admin
-## Support Agent
-Email: agent@servicedesk.com
-Password: Agent@123
-Role: Support Agent
-## Employee
-Email: employee@servicedesk.com
-Password: Employee@123
-Role: Employee
+#### Admin
 
-# These are demonstration credentials for the assignment and should not be used for real systems.
+- Email: `admin@servicedesk.com`
+- Password: `Admin@123`
+- Role: Admin
+
+#### Support Agent
+
+- Email: `agent@servicedesk.com`
+- Password: `Agent@123`
+- Role: Support Agent
+
+#### Employee
+
+- Email: `employee@servicedesk.com`
+- Password: `Employee@123`
+- Role: Employee
+
+> These are demonstration credentials for the assignment and should not be used for real systems.
 
 ### User Roles & Permissions
-## Admin
 
-# Admin has full access to the system.
+#### Admin
 
-# Admin can:
-View all tickets
-Create tickets
-Edit tickets
-Delete tickets
-Assign tickets
-Reassign tickets
-Unassign tickets
-Update ticket status
-Update ticket priority
-Add comments
-Add resolution information
-Manage users
-Manage categories
-View dashboard
-View reports
-View ticket activity
+Admin has full access to the system.
 
-## Support Agent
+Admin can:
 
-# Support Agents can:
-View assigned tickets
-View ticket details
-Update assigned tickets
-Update ticket status
-Update ticket priority
-Add comments
-Add resolution information
-Resolve assigned tickets
-Close resolved assigned tickets
-View dashboard
+- View all tickets
+- Create tickets
+- Edit tickets
+- Delete tickets
+- Assign tickets
+- Reassign tickets
+- Unassign tickets
+- Update ticket status
+- Update ticket priority
+- Add comments
+- Add resolution information
+- Manage users
+- Manage categories
+- View dashboard
+- View reports
+- View ticket activity
 
-# Support Agents cannot:
-Manage users
-Manage categories
-Delete tickets
-Assign tickets to other agents
+#### Support Agent
 
-## Employee
+Support Agents can:
 
-# Employees can: 
-Create support tickets
-View their own tickets
-Edit their own open tickets
-Add comments to their own tickets
-View ticket status
-Cancel their own open tickets
-Reopen resolved tickets
-View resolution information
-View dashboard
+- View assigned tickets
+- View ticket details
+- Update assigned tickets
+- Update ticket status
+- Update ticket priority
+- Add comments
+- Add resolution information
+- Resolve assigned tickets
+- Close resolved assigned tickets
+- View dashboard
 
-# Employees cannot:
-View other employees' tickets
-Assign tickets
-Manage users
-Manage categories
-Add resolution notes
-Delete tickets
+Support Agents cannot:
+
+- Manage users
+- Manage categories
+- Delete tickets
+- Assign tickets to other agents
+
+#### Employee
+
+Employees can:
+
+- Create support tickets
+- View their own tickets
+- Edit their own open tickets
+- Add comments to their own tickets
+- View ticket status
+- Cancel their own open tickets
+- Reopen resolved tickets
+- View resolution information
+- View dashboard
+
+Employees cannot:
+
+- View other employees' tickets
+- Assign tickets
+- Manage users
+- Manage categories
+- Add resolution notes
+- Delete tickets
 
 ### Ticket Lifecycle
 
-# The normal ticket workflow is:
+The normal ticket workflow is:
 
-Open
-  ↓
-Assigned
-  ↓
-In Progress
-  ↓
-Pending
-  ↓
-Resolved
-  ↓
-Closed
+Open → Assigned → In Progress → Pending → Resolved → Closed
 
-# Additional workflows:
-Open → Cancelled
-Pending → In Progress
-Resolved → Reopened
+Additional workflows:
 
-## Available status actions depend on the logged-in user's role.
+- Open → Cancelled
+- Pending → In Progress
+- Resolved → Reopened
+
+> Available status actions depend on the logged-in user's role.
 
 ### Ticket Priorities
-# The system supports four priority levels:
-## Low
-## Medium
-## High
-## Critical
+
+The system supports four priority levels:
+
+- Low
+- Medium
+- High
+- Critical
 
 ### Ticket Statuses
-# The system supports:
 
-Open
-Assigned
-In Progress
-Pending
-Resolved
-Closed
-Cancelled
-Reopened
+The system supports:
+
+- Open
+- Assigned
+- In Progress
+- Pending
+- Resolved
+- Closed
+- Cancelled
+- Reopened
 
 ### API Endpoints
+
 The application uses JSON Server.
-# Base URL: http://localhost:3001
 
-## Tickets
-GET    /tickets
-GET    /tickets/:id
-POST   /tickets
-PUT    /tickets/:id
-PATCH  /tickets/:id
-DELETE /tickets/:id
+Base URL: `http://localhost:3001`
 
-## Users
-GET    /users
-GET    /users/:id
-POST   /users
-PUT    /users/:id
-PATCH  /users/:id
-DELETE /users/:id
+#### Tickets
 
-## Categories
-GET    /categories
-GET    /categories/:id
-POST   /categories
-PUT    /categories/:id
-PATCH  /categories/:id
-DELETE /categories/:id
+- `GET /tickets`
+- `GET /tickets/:id`
+- `POST /tickets`
+- `PUT /tickets/:id`
+- `PATCH /tickets/:id`
+- `DELETE /tickets/:id`
 
-## Comments
+#### Users
 
-GET    /comments
-GET    /comments/:id
-POST   /comments
-PUT    /comments/:id
-PATCH  /comments/:id
-DELETE /comments/:id
+- `GET /users`
+- `GET /users/:id`
+- `POST /users`
+- `PUT /users/:id`
+- `PATCH /users/:id`
+- `DELETE /users/:id`
 
-## Activities
-GET    /activities
-GET    /activities/:id
-POST   /activities
+#### Categories
+
+- `GET /categories`
+- `GET /categories/:id`
+- `POST /categories`
+- `PUT /categories/:id`
+- `PATCH /categories/:id`
+- `DELETE /categories/:id`
+
+#### Comments
+
+- `GET /comments`
+- `GET /comments/:id`
+- `POST /comments`
+- `PUT /comments/:id`
+- `PATCH /comments/:id`
+- `DELETE /comments/:id`
+
+#### Activities
+
+- `GET /activities`
+- `GET /activities/:id`
+- `POST /activities`
 
 ### JSON Server Database
 
-# The mock backend data is stored in:
+The mock backend data is stored in `db.json`.
 
-## db.json
+The database contains the following resources:
 
-# The database contains the following resources:
-users
-tickets
-comments
-categories
-activities
+- users
+- tickets
+- comments
+- categories
+- activities
 
 JSON Server automatically exposes these resources as REST endpoints.
 
-## Form Validation
+### Form Validation
 
 The application implements validation for forms including:
-Required fields
-Valid email format
-Valid phone number
-Minimum description length
-Required category
-Required priority
-Required status
 
-# Validation messages are displayed to users when invalid data is submitted.
+- Required fields
+- Valid email format
+- Valid phone number
+- Minimum description length
+- Required category
+- Required priority
+- Required status
 
-## Error & Loading Handling
+Validation messages are displayed to users when invalid data is submitted.
+
+### Error & Loading Handling
 
 The application includes:
-# Loading States
-Displayed while data is being fetched from JSON Server.
 
-# Empty States
-Displayed when there are no:
-Tickets
-Users
-Categories
-Comments
-Activities
+- Loading states while data is being fetched from JSON Server.
+- Empty states when there are no tickets, users, categories, comments, or activities.
+- Meaningful error messages when API requests fail.
 
-## Error States
-# Meaningful error messages are displayed when API requests fail.
+### Toast Notifications
 
-## Toast Notifications
-# Toast notifications are displayed after successful or failed operations including:
-Create
-Update
-Delete
-Assignment
-Reassignment
-Status change
-Priority change
-Comments
-Resolution
-User activation/deactivation
-Category activation/deactivation
+Toast notifications are displayed after successful or failed operations including:
+
+- Create
+- Update
+- Delete
+- Assignment
+- Reassignment
+- Status change
+- Priority change
+- Comments
+- Resolution
+- User activation/deactivation
+- Category activation/deactivation
 
 ### Dashboard
-## Admin Dashboard
 
-# Displays:
-Total Tickets
-Open Tickets
-Assigned Tickets
-In Progress Tickets
-Pending Tickets
-Resolved Tickets
-Closed Tickets
-Critical Tickets
-Unassigned Tickets
-Support Agent Dashboard
+#### Admin Dashboard
 
-# Displays:
-My Assigned Tickets
-New Tickets
-In Progress Tickets
-Pending Tickets
-Resolved Tickets
-High Priority Tickets
-Employee Dashboard
+Displays:
 
-# Displays:
-My Total Tickets
-Open Tickets
-In Progress Tickets
-Resolved Tickets
-Closed Tickets
+- Total Tickets
+- Open Tickets
+- Assigned Tickets
+- In Progress Tickets
+- Pending Tickets
+- Resolved Tickets
+- Closed Tickets
+- Critical Tickets
+- Unassigned Tickets
+
+#### Support Agent Dashboard
+
+Displays:
+
+- My Assigned Tickets
+- New Tickets
+- In Progress Tickets
+- Pending Tickets
+- Resolved Tickets
+- High Priority Tickets
+
+#### Employee Dashboard
+
+Displays:
+
+- My Total Tickets
+- Open Tickets
+- In Progress Tickets
+- Resolved Tickets
+- Closed Tickets
 
 Dashboard statistics are calculated from the JSON Server ticket data.
 
 ### Reports
-# The Admin Reports section provides ticket analytics including:
-Ticket Status Distribution
-Ticket Priority Distribution
-Tickets by Category
-Agent Workload
-Recent ticket activity
-Build for Production
 
-## Run: npm run build
+The Admin Reports section provides ticket analytics including:
 
-The production build will be generated in:
-dist/
+- Ticket Status Distribution
+- Ticket Priority Distribution
+- Tickets by Category
+- Agent Workload
+- Recent ticket activity
+
+### Production Build
+
+Run:
+
+```bash
+npm run build
+```
+
+The production build will be generated in `dist/`.
 
 To preview the production build locally:
+
+```bash
 npm run preview
+```
