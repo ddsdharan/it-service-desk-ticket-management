@@ -19,6 +19,13 @@ const priorityLabels: Record<string, string> = {
   critical: "Critical",
 };
 
+const priorityColors: Record<string, string> = {
+  low: "#22c55e",
+  medium: "#f59e0b",
+  high: "#f97316",
+  critical: "#ef4444",
+};
+
 const priorityOrder = [
   "critical",
   "high",
@@ -76,6 +83,7 @@ export default function TicketPriorityChart({
                 {data.map((entry, index) => (
                   <Cell
                     key={`${entry.priority}-${index}`}
+                    fill={priorityColors[entry.priority] ?? "#cbd5e1"}
                   />
                 ))}
               </Pie>
@@ -96,11 +104,18 @@ export default function TicketPriorityChart({
           {data.map((item) => (
             <div
               key={item.priority}
-              className="rounded-lg bg-slate-50 px-3 py-2"
+              className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2"
+              style={{
+                boxShadow: `inset 0 0 0 1px ${priorityColors[item.priority]}22`,
+              }}
             >
-              <p className="text-xs text-slate-500">
-                {item.name}
-              </p>
+              <div className="flex items-center gap-2">
+                <span
+                  className="h-2.5 w-2.5 rounded-full"
+                  style={{ backgroundColor: priorityColors[item.priority] ?? "#cbd5e1" }}
+                />
+                <p className="text-xs text-slate-500">{item.name}</p>
+              </div>
 
               <p className="mt-1 text-lg font-semibold text-slate-900">
                 {item.value}

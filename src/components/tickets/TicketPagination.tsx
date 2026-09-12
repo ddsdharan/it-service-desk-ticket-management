@@ -54,15 +54,15 @@ export default function TicketPagination({
     <div className="flex flex-col gap-4 border-t border-slate-200 bg-white px-5 py-4 sm:flex-row sm:items-center sm:justify-between">
       <p className="text-sm text-slate-500">
         Showing{" "}
-        <span className="font-medium text-slate-700">
+        <span className="font-semibold text-slate-700">
           {startItem}
         </span>{" "}
         to{" "}
-        <span className="font-medium text-slate-700">
+        <span className="font-semibold text-slate-700">
           {endItem}
         </span>{" "}
         of{" "}
-        <span className="font-medium text-slate-700">
+        <span className="font-semibold text-slate-700">
           {totalItems}
         </span>{" "}
         tickets
@@ -71,9 +71,7 @@ export default function TicketPagination({
       <div className="flex items-center gap-1">
         <button
           type="button"
-          onClick={() =>
-            onPageChange(currentPage - 1)
-          }
+          onClick={() => onPageChange(currentPage - 1)}
           disabled={currentPage === 1}
           aria-label="Previous page"
           className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-300 text-slate-600 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"
@@ -86,14 +84,10 @@ export default function TicketPagination({
             key={page}
             type="button"
             onClick={() => onPageChange(page)}
-            aria-current={
-              page === currentPage
-                ? "page"
-                : undefined
-            }
+            aria-current={page === currentPage ? "page" : undefined}
             className={`inline-flex h-9 min-w-9 items-center justify-center rounded-lg px-2 text-sm font-medium transition ${
               page === currentPage
-                ? "bg-slate-900 text-white"
+                ? "bg-slate-900 text-white shadow-sm"
                 : "border border-slate-300 text-slate-600 hover:bg-slate-50"
             }`}
           >
@@ -103,9 +97,7 @@ export default function TicketPagination({
 
         <button
           type="button"
-          onClick={() =>
-            onPageChange(currentPage + 1)
-          }
+          onClick={() => onPageChange(currentPage + 1)}
           disabled={currentPage === totalPages}
           aria-label="Next page"
           className="inline-flex h-9 w-9 items-center justify-center rounded-lg border border-slate-300 text-slate-600 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-40"

@@ -134,9 +134,9 @@ export default function UserForm({
       onSubmit={handleSubmit}
       className="space-y-5"
     >
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-4 sm:gap-5 md:grid-cols-2">
         <div>
-          <label className="mb-2 block text-sm font-medium text-slate-700">
+          <label className="mb-1.5 block text-sm font-medium text-slate-700">
             Full Name
           </label>
 
@@ -145,7 +145,7 @@ export default function UserForm({
             onChange={(event) =>
               updateField("fullName", event.target.value)
             }
-            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+            className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             placeholder="Enter full name"
             disabled={isSubmitting}
           />
@@ -168,7 +168,7 @@ export default function UserForm({
             onChange={(event) =>
               updateField("email", event.target.value)
             }
-            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+            className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             placeholder="user@example.com"
             disabled={isSubmitting}
           />
@@ -190,7 +190,7 @@ export default function UserForm({
             onChange={(event) =>
               updateField("phone", event.target.value)
             }
-            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+            className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             placeholder="+91 9876543210"
             disabled={isSubmitting}
           />
@@ -212,7 +212,7 @@ export default function UserForm({
             onChange={(event) =>
               updateField("department", event.target.value)
             }
-            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+            className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             placeholder="IT"
             disabled={isSubmitting}
           />
@@ -237,7 +237,7 @@ export default function UserForm({
                 event.target.value as UserRole,
               )
             }
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+            className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             disabled={isSubmitting}
           >
             <option value="employee">Employee</option>
@@ -259,7 +259,7 @@ export default function UserForm({
                 event.target.value as UserStatus,
               )
             }
-            className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+            className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             disabled={isSubmitting}
           >
             <option value="active">Active</option>
@@ -278,7 +278,7 @@ export default function UserForm({
             onChange={(event) =>
               updateField("password", event.target.value)
             }
-            className="w-full rounded-lg border border-slate-300 px-3 py-2.5 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100"
+            className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-blue-500 focus:bg-white focus:ring-4 focus:ring-blue-100"
             placeholder={
               isEditing
                 ? "Leave unchanged or enter a new password"

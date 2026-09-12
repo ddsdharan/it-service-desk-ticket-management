@@ -23,6 +23,17 @@ const statusLabels: Record<string, string> = {
   reopened: "Reopened",
 };
 
+const statusColors: Record<string, string> = {
+  open: "#6366f1",
+  assigned: "#3b82f6",
+  in_progress: "#0ea5e9",
+  pending: "#f59e0b",
+  resolved: "#10b981",
+  closed: "#22c55e",
+  cancelled: "#ef4444",
+  reopened: "#8b5cf6",
+};
+
 const statusOrder = [
   "open",
   "assigned",
@@ -82,6 +93,7 @@ export default function TicketStatusChart({
                 {data.map((entry, index) => (
                   <Cell
                     key={`${entry.status}-${index}`}
+                    fill={statusColors[entry.status] ?? "#cbd5e1"}
                   />
                 ))}
               </Pie>
@@ -102,11 +114,18 @@ export default function TicketStatusChart({
           {data.map((item) => (
             <div
               key={item.status}
-              className="rounded-lg bg-slate-50 px-3 py-2"
+              className="rounded-lg border border-slate-200 bg-slate-50 px-3 py-2"
+              style={{
+                boxShadow: `inset 0 0 0 1px ${statusColors[item.status]}22`,
+              }}
             >
-              <p className="text-xs text-slate-500">
-                {item.name}
-              </p>
+              <div className="flex items-center gap-2">
+                <span
+                  className="h-2.5 w-2.5 rounded-full"
+                  style={{ backgroundColor: statusColors[item.status] ?? "#cbd5e1" }}
+                />
+                <p className="text-xs text-slate-500">{item.name}</p>
+              </div>
 
               <p className="mt-1 text-lg font-semibold text-slate-900">
                 {item.value}

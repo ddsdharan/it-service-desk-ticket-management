@@ -10,19 +10,19 @@ const statusConfig: Record<
 > = {
   open: {
     label: "Open",
-    className: "bg-sky-50 text-sky-700 ring-sky-200",
+    className: "bg-indigo-50 text-indigo-700 ring-indigo-200",
   },
   assigned: {
     label: "Assigned",
-    className: "bg-indigo-50 text-indigo-700 ring-indigo-200",
+    className: "bg-sky-50 text-sky-700 ring-sky-200",
   },
   in_progress: {
     label: "In Progress",
-    className: "bg-amber-50 text-amber-700 ring-amber-200",
+    className: "bg-cyan-50 text-cyan-700 ring-cyan-200",
   },
   pending: {
     label: "Pending",
-    className: "bg-orange-50 text-orange-700 ring-orange-200",
+    className: "bg-amber-50 text-amber-700 ring-amber-200",
   },
   resolved: {
     label: "Resolved",
@@ -30,11 +30,11 @@ const statusConfig: Record<
   },
   closed: {
     label: "Closed",
-    className: "bg-slate-100 text-slate-700 ring-slate-200",
+    className: "bg-green-50 text-green-700 ring-green-200",
   },
   cancelled: {
     label: "Cancelled",
-    className: "bg-red-50 text-red-700 ring-red-200",
+    className: "bg-rose-50 text-rose-700 ring-rose-200",
   },
   reopened: {
     label: "Reopened",

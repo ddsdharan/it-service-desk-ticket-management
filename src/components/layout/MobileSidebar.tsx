@@ -15,16 +15,14 @@ export default function MobileSidebar({
 
   return (
     <div className="fixed inset-0 z-50 lg:hidden">
-      {/* Overlay */}
       <button
         type="button"
         aria-label="Close navigation"
         onClick={onClose}
-        className="absolute inset-0 bg-slate-950/40"
+        className="absolute inset-0 bg-slate-950/50 backdrop-blur-[2px]"
       />
 
-      {/* Drawer */}
-      <div className="relative h-full w-72 max-w-[85vw]">
+      <div className="relative h-full w-[84vw] max-w-xs shadow-2xl shadow-slate-950/30">
         <Sidebar mobile onClose={onClose} />
       </div>
     </div>

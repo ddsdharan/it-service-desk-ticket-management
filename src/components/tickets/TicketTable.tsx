@@ -15,93 +15,86 @@ export default function TicketTable({
   categoryNames,
 }: TicketTableProps) {
   return (
-    <div className="overflow-hidden rounded-xl border border-slate-200 bg-white shadow-sm">
+    <div className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
       <div className="overflow-x-auto">
-        <table className="w-full min-w-[950px] text-left">
-          <thead className="border-b border-slate-200 bg-slate-50">
+        <table className="w-full min-w-[760px] text-left sm:min-w-[960px]">
+          <thead className="border-b border-slate-200 bg-slate-50/80">
             <tr>
-              <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <th className="px-3 py-3 text-left text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:px-5 sm:text-[11px]">
                 Ticket
               </th>
 
-              <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <th className="px-3 py-3 text-left text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:px-5 sm:text-[11px]">
                 Requester
               </th>
 
-              <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <th className="px-3 py-3 text-left text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:px-5 sm:text-[11px]">
                 Category
               </th>
 
-              <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <th className="px-3 py-3 text-left text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:px-5 sm:text-[11px]">
                 Priority
               </th>
 
-              <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <th className="px-3 py-3 text-left text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:px-5 sm:text-[11px]">
                 Status
               </th>
 
-              <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <th className="px-3 py-3 text-left text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:px-5 sm:text-[11px]">
                 Assigned To
               </th>
 
-              <th className="px-5 py-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              <th className="px-3 py-3 text-left text-[10px] font-semibold uppercase tracking-[0.14em] text-slate-500 sm:px-5 sm:text-[11px]">
                 Updated
               </th>
             </tr>
           </thead>
 
-          <tbody className="divide-y divide-slate-100">
+          <tbody className="divide-y divide-slate-200 bg-white">
             {tickets.map((ticket) => (
               <tr
                 key={ticket.id}
-                className="transition hover:bg-slate-50"
+                className="transition-colors hover:bg-slate-50"
               >
-                <td className="px-5 py-4">
+                <td className="px-3 py-3 align-top sm:px-5 sm:py-4">
                   <Link
                     to={`/app/tickets/${ticket.id}`}
-                    className="group"
+                    className="group inline-block"
                   >
-                    <p className="text-xs font-medium text-slate-400">
+                    <p className="text-[10px] font-semibold uppercase tracking-[0.12em] text-slate-400 sm:text-[11px]">
                       {ticket.id}
                     </p>
 
-                    <p className="mt-1 max-w-[260px] truncate text-sm font-medium text-slate-900 group-hover:text-slate-600">
+                    <p className="mt-1 max-w-[180px] truncate text-sm font-medium text-slate-900 group-hover:text-indigo-600 sm:max-w-[260px]">
                       {ticket.subject}
                     </p>
                   </Link>
                 </td>
 
-                <td className="px-5 py-4 text-sm text-slate-600">
+                <td className="px-3 py-3 text-sm text-slate-600 sm:px-5 sm:py-4">
                   {userNames[ticket.createdBy] ?? "Unknown"}
                 </td>
 
-                <td className="px-5 py-4 text-sm text-slate-600">
+                <td className="px-3 py-3 text-sm text-slate-600 sm:px-5 sm:py-4">
                   {categoryNames[ticket.categoryId] ?? "Unknown"}
                 </td>
 
-                <td className="px-5 py-4">
-                  <TicketPriorityBadge
-                    priority={ticket.priority}
-                  />
+                <td className="px-3 py-3 sm:px-5 sm:py-4">
+                  <TicketPriorityBadge priority={ticket.priority} />
                 </td>
 
-                <td className="px-5 py-4">
-                  <TicketStatusBadge
-                    status={ticket.status}
-                  />
+                <td className="px-3 py-3 sm:px-5 sm:py-4">
+                  <TicketStatusBadge status={ticket.status} />
                 </td>
 
-                <td className="px-5 py-4 text-sm text-slate-600">
+                <td className="px-3 py-3 text-sm text-slate-600 sm:px-5 sm:py-4">
                   {ticket.assignedAgent
-                    ? userNames[ticket.assignedAgent] ??
-                      "Unknown"
+                    ? userNames[ticket.assignedAgent] ?? "Unknown"
                     : "Unassigned"}
                 </td>
 
-                <td className="whitespace-nowrap px-5 py-4 text-sm text-slate-500">
-                  {new Date(
-                    ticket.updatedAt
-                  ).toLocaleDateString()}
+                <td className="whitespace-nowrap px-3 py-3 text-sm text-slate-500 sm:px-5 sm:py-4">
+                  {new Date(ticket.updatedAt).toLocaleDateString()}
                 </td>
               </tr>
             ))}

@@ -72,6 +72,47 @@ const priorityLabels = {
   critical: "Critical",
 };
 
+const statusColorMap: Record<string, string> = {
+  Open: "#6366f1",
+  Assigned: "#3b82f6",
+  "In Progress": "#06b6d4",
+  Pending: "#f59e0b",
+  Resolved: "#10b981",
+  Closed: "#22c55e",
+  Cancelled: "#ef4444",
+  Reopened: "#8b5cf6",
+};
+
+const priorityColorMap: Record<string, string> = {
+  Low: "#22c55e",
+  Medium: "#f59e0b",
+  High: "#f97316",
+  Critical: "#ef4444",
+};
+
+const categoryBarColors = [
+  "#6366f1",
+  "#10b981",
+  "#f59e0b",
+  "#8b5cf6",
+  "#06b6d4",
+  "#f97316",
+  "#22c55e",
+  "#ef4444",
+  "#3b82f6",
+];
+
+const agentBarColors = [
+  "#4f46e5",
+  "#0ea5e9",
+  "#10b981",
+  "#f59e0b",
+  "#8b5cf6",
+  "#ef4444",
+  "#22c55e",
+  "#f97316",
+];
+
 function formatDate(value: string) {
   const date = new Date(value);
 
@@ -320,7 +361,7 @@ export default function ReportsPage() {
       </div>
 
       {/* Summary cards */}
-      <section className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
+      <section className="grid gap-4 grid-cols-2 md:grid-cols-3 xl:grid-cols-4">
         <StatCard
           title="Total Tickets"
           value={totalTickets}
@@ -436,11 +477,14 @@ export default function ReportsPage() {
                     paddingAngle={2}
                     label
                   >
-                    {statusData.map((entry, index) => (
-                      <Cell
-                        key={`${entry.name}-${index}`}
-                      />
-                    ))}
+                    {statusData
+                      .filter((entry) => entry.value > 0)
+                      .map((entry, index) => (
+                        <Cell
+                          key={`${entry.name}-${index}`}
+                          fill={statusColorMap[entry.name] ?? "#cbd5e1"}
+                        />
+                      ))}
                   </Pie>
 
                   <Tooltip />
@@ -494,7 +538,14 @@ export default function ReportsPage() {
                     dataKey="value"
                     name="Tickets"
                     radius={[6, 6, 0, 0]}
-                  />
+                  >
+                    {priorityData.map((entry, index) => (
+                      <Cell
+                        key={`${entry.name}-${index}`}
+                        fill={priorityColorMap[entry.name] ?? "#cbd5e1"}
+                      />
+                    ))}
+                  </Bar>
                 </BarChart>
               </ResponsiveContainer>
             </div>
@@ -554,7 +605,14 @@ export default function ReportsPage() {
                       dataKey="value"
                       name="Tickets"
                       radius={[0, 6, 6, 0]}
-                    />
+                    >
+                      {categoryData.map((entry, index) => (
+                        <Cell
+                          key={`${entry.name}-${index}`}
+                          fill={categoryBarColors[index % categoryBarColors.length]}
+                        />
+                      ))}
+                    </Bar>
                   </BarChart>
                 </ResponsiveContainer>
               </div>
@@ -615,7 +673,14 @@ export default function ReportsPage() {
                       dataKey="value"
                       name="Assigned Tickets"
                       radius={[0, 6, 6, 0]}
-                    />
+                    >
+                      {agentWorkloadData.map((entry, index) => (
+                        <Cell
+                          key={`${entry.name}-${index}`}
+                          fill={agentBarColors[index % agentBarColors.length]}
+                        />
+                      ))}
+                    </Bar>
                   </BarChart>
                 </ResponsiveContainer>
               </div>
@@ -657,7 +722,14 @@ export default function ReportsPage() {
                       {ticket.id}
                     </span>
 
-                    <span className="rounded-full bg-slate-100 px-2 py-0.5 text-[11px] font-medium text-slate-600">
+                    <span
+                      className="rounded-full px-2 py-0.5 text-[11px] font-medium ring-1 ring-inset"
+                      style={{
+                        backgroundColor: `${statusColorMap[statusLabels[ticket.status]] ?? "#e2e8f0"}22`,
+                        color: statusColorMap[statusLabels[ticket.status]] ?? "#475569",
+                        borderColor: `${statusColorMap[statusLabels[ticket.status]] ?? "#cbd5e1"}55`,
+                      }}
+                    >
                       {statusLabels[ticket.status]}
                     </span>
                   </div>

@@ -41,9 +41,8 @@ export default function TicketFilters({
     Boolean(filters.date);
 
   return (
-    <div className="rounded-xl border border-slate-200 bg-white p-4 shadow-sm">
+    <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm sm:p-5">
       <div className="flex flex-col gap-4">
-        {/* Search */}
         <div className="relative">
           <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-slate-400" />
 
@@ -54,118 +53,113 @@ export default function TicketFilters({
               onChange("search", event.target.value)
             }
             placeholder="Search by ticket ID, subject, employee or agent..."
-            className="w-full rounded-lg border border-slate-300 py-2.5 pl-10 pr-3 text-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+            className="w-full rounded-xl border border-slate-300 bg-slate-50 py-2.5 pl-10 pr-3 text-sm text-slate-700 outline-none transition focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100"
           />
         </div>
 
-        {/* Filter row */}
         <div className="flex flex-col gap-3 lg:flex-row lg:flex-wrap lg:items-center">
-          <div className="flex items-center gap-2 text-sm text-slate-500">
-            <SlidersHorizontal className="h-4 w-4" />
+          <div className="flex items-center gap-2 text-sm font-medium text-slate-600">
+            <SlidersHorizontal className="h-4 w-4 text-indigo-600" />
             <span>Filters</span>
           </div>
 
-          {/* Status */}
-          <select
-            value={filters.status}
-            onChange={(event) =>
-              onChange("status", event.target.value)
-            }
-            className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
-          >
-            <option value="all">All statuses</option>
-            <option value="assigned">Assigned</option>
-            <option value="open">Open</option>
-            <option value="in_progress">In Progress</option>
-            <option value="pending">Pending</option>
-            <option value="resolved">Resolved</option>
-            <option value="closed">Closed</option>
-            <option value="cancelled">Cancelled</option>
-            <option value="reopened">Reopened</option>
-          </select>
+          <div className="grid w-full gap-3 grid-cols-1 sm:grid-cols-2 xl:grid-cols-6">
+            <select
+              value={filters.status}
+              onChange={(event) =>
+                onChange("status", event.target.value)
+              }
+              className="rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100"
+            >
+              <option value="all">All statuses</option>
+              <option value="assigned">Assigned</option>
+              <option value="open">Open</option>
+              <option value="in_progress">In Progress</option>
+              <option value="pending">Pending</option>
+              <option value="resolved">Resolved</option>
+              <option value="closed">Closed</option>
+              <option value="cancelled">Cancelled</option>
+              <option value="reopened">Reopened</option>
+            </select>
 
-          {/* Priority */}
-          <select
-            value={filters.priority}
-            onChange={(event) =>
-              onChange("priority", event.target.value)
-            }
-            className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
-          >
-            <option value="all">All priorities</option>
-            <option value="low">Low</option>
-            <option value="medium">Medium</option>
-            <option value="high">High</option>
-            <option value="critical">Critical</option>
-          </select>
+            <select
+              value={filters.priority}
+              onChange={(event) =>
+                onChange("priority", event.target.value)
+              }
+              className="rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100"
+            >
+              <option value="all">All priorities</option>
+              <option value="low">Low</option>
+              <option value="medium">Medium</option>
+              <option value="high">High</option>
+              <option value="critical">Critical</option>
+            </select>
 
-          {/* Category */}
-          <select
-            value={filters.categoryId}
-            onChange={(event) =>
-              onChange("categoryId", event.target.value)
-            }
-            className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
-          >
-            <option value="">All categories</option>
+            <select
+              value={filters.categoryId}
+              onChange={(event) =>
+                onChange("categoryId", event.target.value)
+              }
+              className="rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100"
+            >
+              <option value="">All categories</option>
 
-            {categories.map((category) => (
-              <option key={category.id} value={category.id}>
-                {category.name}
-              </option>
-            ))}
-          </select>
+              {categories.map((category) => (
+                <option key={category.id} value={category.id}>
+                  {category.name}
+                </option>
+              ))}
+            </select>
 
-          {/* Agent */}
-          <select
-            value={filters.agentId}
-            onChange={(event) =>
-              onChange("agentId", event.target.value)
-            }
-            className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
-          >
-            <option value="">All agents</option>
+            <select
+              value={filters.agentId}
+              onChange={(event) =>
+                onChange("agentId", event.target.value)
+              }
+              className="rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100"
+            >
+              <option value="">All agents</option>
 
-            {agents.map((agent) => (
-              <option key={agent.id} value={agent.id}>
-                {agent.fullName}
-              </option>
-            ))}
-          </select>
+              {agents.map((agent) => (
+                <option key={agent.id} value={agent.id}>
+                  {agent.fullName}
+                </option>
+              ))}
+            </select>
 
-          {/* Date */}
-          <select
-            value={filters.date}
-            onChange={(event) =>
-              onChange("date", event.target.value)
-            }
-            className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
-          >
-            <option value="">All dates</option>
-            <option value="today">Today</option>
-            <option value="7">Last 7 days</option>
-            <option value="30">Last 30 days</option>
-          </select>
+            <select
+              value={filters.date}
+              onChange={(event) =>
+                onChange("date", event.target.value)
+              }
+              className="rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100"
+            >
+              <option value="">All dates</option>
+              <option value="today">Today</option>
+              <option value="7">Last 7 days</option>
+              <option value="30">Last 30 days</option>
+            </select>
 
-          {/* Sort */}
-          <select
-            value={filters.sort}
-            onChange={(event) =>
-              onChange("sort", event.target.value)
-            }
-            className="rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
-          >
-            <option value="newest">Newest</option>
-            <option value="oldest">Oldest</option>
-            <option value="priority">Highest priority</option>
-            <option value="updated">Recently updated</option>
-          </select>
+            <select
+              value={filters.sort}
+              onChange={(event) =>
+                onChange("sort", event.target.value)
+              }
+              className="rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100"
+            >
+              <option value="newest">Newest</option>
+              <option value="oldest">Oldest</option>
+              <option value="priority">Highest priority</option>
+              <option value="updated">Recently updated</option>
+            </select>
+          </div>
 
           {hasFilters && (
             <button
               type="button"
               onClick={onReset}
-              className="inline-flex items-center justify-center gap-1 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-slate-100 hover:text-slate-900"
+              className="inline-flex items-center justify-center gap-1 rounded-xl border border-slate-200 bg-white px-3 py-2.5 text-sm font-medium text-slate-600 transition hover:border-slate-300 hover:bg-slate-50 hover:text-slate-900"
             >
               <X className="h-4 w-4" />
               Reset

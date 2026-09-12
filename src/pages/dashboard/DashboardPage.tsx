@@ -61,85 +61,80 @@ export default function DashboardPage() {
   }
 
   return (
-    <div className="p-4 sm:p-6 lg:p-8">
-      {/* Header */}
-      <div className="mb-7">
-        <p className="text-sm font-medium text-slate-500">
+    <div className="space-y-6 pb-6">
+      <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+        <p className="text-sm font-medium text-indigo-600">
           Overview
         </p>
 
-        <h1 className="mt-1 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+        <h1 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
           Dashboard
         </h1>
 
-        <p className="mt-2 text-sm text-slate-500">
+        <p className="mt-2 text-sm text-slate-500 sm:text-base">
           Welcome back, {user?.fullName}. Here's what's happening
           with your service desk.
         </p>
       </div>
 
-      {/* Admin */}
       {user?.role === "admin" && (
-        <>
-          <DashboardSection title="Ticket Overview">
-            <StatCard
-              title="Total Tickets"
-              value={adminStats.total}
-              icon={Ticket}
-            />
+        <DashboardSection title="Ticket Overview">
+          <StatCard
+            title="Total Tickets"
+            value={adminStats.total}
+            icon={Ticket}
+          />
 
-            <StatCard
-              title="Open"
-              value={adminStats.open}
-              icon={Inbox}
-            />
+          <StatCard
+            title="Open"
+            value={adminStats.open}
+            icon={Inbox}
+          />
 
-            <StatCard
-              title="Assigned"
-              value={adminStats.assigned}
-              icon={UserCheck}
-            />
+          <StatCard
+            title="Assigned"
+            value={adminStats.assigned}
+            icon={UserCheck}
+          />
 
-            <StatCard
-              title="In Progress"
-              value={adminStats.inProgress}
-              icon={Timer}
-            />
+          <StatCard
+            title="In Progress"
+            value={adminStats.inProgress}
+            icon={Timer}
+          />
 
-            <StatCard
-              title="Pending"
-              value={adminStats.pending}
-              icon={Clock3}
-            />
+          <StatCard
+            title="Pending"
+            value={adminStats.pending}
+            icon={Clock3}
+          />
 
-            <StatCard
-              title="Resolved"
-              value={adminStats.resolved}
-              icon={CheckCircle2}
-            />
+          <StatCard
+            title="Resolved"
+            value={adminStats.resolved}
+            icon={CheckCircle2}
+          />
 
-            <StatCard
-              title="Closed"
-              value={adminStats.closed}
-              icon={FolderOpen}
-            />
+          <StatCard
+            title="Closed"
+            value={adminStats.closed}
+            icon={FolderOpen}
+          />
 
-            <StatCard
-              title="Critical"
-              value={adminStats.critical}
-              icon={AlertTriangle}
-            />
+          <StatCard
+            title="Critical"
+            value={adminStats.critical}
+            icon={AlertTriangle}
+          />
 
-            <StatCard
-              title="Unassigned"
-              value={adminStats.unassigned}
-              icon={XCircle}
-            />
-          </DashboardSection>
-        </>
+          <StatCard
+            title="Unassigned"
+            value={adminStats.unassigned}
+            icon={XCircle}
+          />
+        </DashboardSection>
       )}
 
-      {/* Agent */}
       {user?.role === "support_agent" && (
         <DashboardSection title="My Workload">
           <StatCard
@@ -180,7 +175,6 @@ export default function DashboardPage() {
         </DashboardSection>
       )}
 
-      {/* Employee */}
       {user?.role === "employee" && (
         <DashboardSection title="My Requests">
           <StatCard
@@ -214,7 +208,8 @@ export default function DashboardPage() {
           />
         </DashboardSection>
       )}
-      <div className="mt-8 grid grid-cols-1 gap-6 xl:grid-cols-2">
+
+      <div className="grid grid-cols-1 gap-6 xl:grid-cols-2">
         <TicketStatusChart tickets={visibleTickets} />
         <TicketPriorityChart tickets={visibleTickets} />
       </div>
@@ -232,14 +227,14 @@ function DashboardSection({
   children,
 }: DashboardSectionProps) {
   return (
-    <section>
-      <div className="mb-4 flex items-center justify-between">
-        <h2 className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+    <section className="space-y-4">
+      <div className="flex items-center justify-between">
+        <h2 className="text-sm font-semibold uppercase tracking-[0.18em] text-slate-500">
           {title}
         </h2>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-2 gap-4 md:grid-cols-3 xl:grid-cols-3">
         {children}
       </div>
     </section>
@@ -248,18 +243,18 @@ function DashboardSection({
 
 function DashboardSkeleton() {
   return (
-    <div className="p-4 sm:p-6 lg:p-8">
-      <div className="mb-7">
+    <div className="space-y-6 pb-6">
+      <div className="rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
         <div className="h-4 w-24 animate-pulse rounded bg-slate-200" />
         <div className="mt-3 h-8 w-48 animate-pulse rounded bg-slate-200" />
         <div className="mt-3 h-4 w-80 max-w-full animate-pulse rounded bg-slate-200" />
       </div>
 
-      <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3">
+      <div className="grid grid-cols-2 gap-4 sm:grid-cols-2 xl:grid-cols-3">
         {Array.from({ length: 6 }).map((_, index) => (
           <div
             key={index}
-            className="h-32 animate-pulse rounded-xl border border-slate-200 bg-white"
+            className="h-32 animate-pulse rounded-2xl border border-slate-200 bg-white"
           />
         ))}
       </div>

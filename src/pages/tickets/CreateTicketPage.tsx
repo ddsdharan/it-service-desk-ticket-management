@@ -136,10 +136,9 @@ export default function CreateTicketPage() {
   }
 
   return (
-    <div className="p-4 sm:p-6 lg:p-8">
+    <div className="space-y-6 pb-6">
       <div className="mx-auto max-w-4xl">
-        {/* Header */}
-        <div className="mb-7">
+        <div className="mb-7 rounded-3xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
           <Link
             to="/app/tickets"
             className="mb-5 inline-flex items-center gap-2 text-sm font-medium text-slate-500 transition hover:text-slate-900"
@@ -148,11 +147,11 @@ export default function CreateTicketPage() {
             Back to Tickets
           </Link>
 
-          <p className="text-sm font-medium text-slate-500">
+          <p className="text-sm font-medium text-indigo-600">
             Service Desk
           </p>
 
-          <h1 className="mt-1 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
+          <h1 className="mt-2 text-2xl font-semibold tracking-tight text-slate-900 sm:text-3xl">
             Create Ticket
           </h1>
 
@@ -161,13 +160,11 @@ export default function CreateTicketPage() {
           </p>
         </div>
 
-        {/* Form */}
         <form
           onSubmit={handleSubmit(onSubmit)}
           noValidate
-          className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm"
+          className="overflow-hidden rounded-3xl border border-slate-200 bg-white shadow-sm"
         >
-          {/* Request details */}
           <div className="border-b border-slate-200 p-5 sm:p-7">
             <div className="mb-6">
               <h2 className="text-base font-semibold text-slate-900">
@@ -180,7 +177,6 @@ export default function CreateTicketPage() {
               </p>
             </div>
 
-            {/* Subject */}
             <div>
               <label
                 htmlFor="subject"
@@ -196,10 +192,10 @@ export default function CreateTicketPage() {
                 {...register("subject")}
                 placeholder="Briefly describe your issue"
                 aria-invalid={Boolean(errors.subject)}
-                className={`w-full rounded-lg border px-3 py-2.5 text-sm outline-none transition ${
+                className={`w-full rounded-xl border bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition ${
                   errors.subject
-                    ? "border-red-300 focus:border-red-500 focus:ring-2 focus:ring-red-100"
-                    : "border-slate-300 focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+                    ? "border-red-300 focus:border-red-500 focus:ring-4 focus:ring-red-100"
+                    : "border-slate-300 focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100"
                 }`}
               />
 
@@ -210,7 +206,6 @@ export default function CreateTicketPage() {
               )}
             </div>
 
-            {/* Description */}
             <div className="mt-5">
               <label
                 htmlFor="description"
@@ -229,10 +224,10 @@ export default function CreateTicketPage() {
                   {...register("description")}
                   placeholder="Describe the issue, what you were doing when it occurred, and any relevant details..."
                   aria-invalid={Boolean(errors.description)}
-                  className={`w-full resize-y rounded-lg border py-2.5 pl-10 pr-3 text-sm outline-none transition ${
+                  className={`w-full resize-y rounded-xl border bg-slate-50 py-2.5 pl-10 pr-3 text-sm text-slate-700 outline-none transition ${
                     errors.description
-                      ? "border-red-300 focus:border-red-500 focus:ring-2 focus:ring-red-100"
-                      : "border-slate-300 focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+                      ? "border-red-300 focus:border-red-500 focus:ring-4 focus:ring-red-100"
+                      : "border-slate-300 focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100"
                   }`}
                 />
               </div>
@@ -248,7 +243,6 @@ export default function CreateTicketPage() {
               </p>
             </div>
 
-            {/* Category + Priority */}
             <div className="mt-5 grid gap-5 md:grid-cols-2">
               <div>
                 <label
@@ -264,11 +258,11 @@ export default function CreateTicketPage() {
                   {...register("categoryId")}
                   disabled={isCategoriesLoading}
                   aria-invalid={Boolean(errors.categoryId)}
-                  className={`w-full rounded-lg border bg-white px-3 py-2.5 text-sm outline-none transition ${
+                  className={`w-full rounded-xl border bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition ${
                     errors.categoryId
-                      ? "border-red-300 focus:border-red-500 focus:ring-2 focus:ring-red-100"
-                      : "border-slate-300 focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
-                  } disabled:cursor-not-allowed disabled:bg-slate-50`}
+                      ? "border-red-300 focus:border-red-500 focus:ring-4 focus:ring-red-100"
+                      : "border-slate-300 focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100"
+                  } disabled:cursor-not-allowed disabled:bg-slate-100`}
                 >
                   <option value="">
                     {isCategoriesLoading
@@ -277,10 +271,7 @@ export default function CreateTicketPage() {
                   </option>
 
                   {categories.map((category) => (
-                    <option
-                      key={category.id}
-                      value={category.id}
-                    >
+                    <option key={category.id} value={category.id}>
                       {category.name}
                     </option>
                   ))}
@@ -311,7 +302,7 @@ export default function CreateTicketPage() {
                 <select
                   id="priority"
                   {...register("priority")}
-                  className="w-full rounded-lg border border-slate-300 bg-white px-3 py-2.5 text-sm outline-none transition focus:border-slate-500 focus:ring-2 focus:ring-slate-200"
+                  className="w-full rounded-xl border border-slate-300 bg-slate-50 px-3 py-2.5 text-sm text-slate-700 outline-none transition focus:border-indigo-400 focus:bg-white focus:ring-4 focus:ring-indigo-100"
                 >
                   <option value="low">Low</option>
                   <option value="medium">Medium</option>
@@ -327,7 +318,6 @@ export default function CreateTicketPage() {
               </div>
             </div>
 
-            {/* Contact method */}
             <div className="mt-5">
               <label className="mb-3 block text-sm font-medium text-slate-700">
                 Preferred Contact Method
@@ -344,9 +334,7 @@ export default function CreateTicketPage() {
                       label="Email"
                       icon={<Send className="h-4 w-4" />}
                       selected={field.value === "email"}
-                      onSelect={() =>
-                        field.onChange("email")
-                      }
+                      onSelect={() => field.onChange("email")}
                     />
 
                     <ContactOption
@@ -354,21 +342,15 @@ export default function CreateTicketPage() {
                       label="Phone"
                       icon={<Phone className="h-4 w-4" />}
                       selected={field.value === "phone"}
-                      onSelect={() =>
-                        field.onChange("phone")
-                      }
+                      onSelect={() => field.onChange("phone")}
                     />
 
                     <ContactOption
                       value="chat"
                       label="Chat"
-                      icon={
-                        <MessageSquare className="h-4 w-4" />
-                      }
+                      icon={<MessageSquare className="h-4 w-4" />}
                       selected={field.value === "chat"}
-                      onSelect={() =>
-                        field.onChange("chat")
-                      }
+                      onSelect={() => field.onChange("chat")}
                     />
                   </div>
                 )}
@@ -382,45 +364,42 @@ export default function CreateTicketPage() {
             </div>
           </div>
 
-          {/* Requester information */}
           <div className="border-b border-slate-200 bg-slate-50/60 p-5 sm:p-7">
             <h2 className="text-base font-semibold text-slate-900">
               Requester
             </h2>
 
             <p className="mt-1 text-sm text-slate-500">
-              This ticket will automatically be associated with
-              your account.
+              This ticket will automatically be associated with your account.
             </p>
 
             <div className="mt-4 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-lg border border-slate-200 bg-white p-4">
-                <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+              <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">
                   Name
                 </p>
 
-                <p className="mt-1 text-sm font-medium text-slate-900">
+                <p className="mt-2 text-sm font-medium text-slate-900">
                   {user?.fullName}
                 </p>
               </div>
 
-              <div className="rounded-lg border border-slate-200 bg-white p-4">
-                <p className="text-xs font-medium uppercase tracking-wide text-slate-400">
+              <div className="rounded-2xl border border-slate-200 bg-white p-4 shadow-sm">
+                <p className="text-[11px] font-semibold uppercase tracking-[0.12em] text-slate-400">
                   Email
                 </p>
 
-                <p className="mt-1 text-sm font-medium text-slate-900">
+                <p className="mt-2 text-sm font-medium text-slate-900">
                   {user?.email}
                 </p>
               </div>
             </div>
           </div>
 
-          {/* Form actions */}
           <div className="flex flex-col-reverse gap-3 p-5 sm:flex-row sm:items-center sm:justify-end sm:p-7">
             <Link
               to="/app/tickets"
-              className="inline-flex justify-center rounded-lg border border-slate-300 px-4 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
+              className="inline-flex justify-center rounded-xl border border-slate-300 bg-white px-4 py-2.5 text-sm font-medium text-slate-700 transition hover:bg-slate-50"
             >
               Cancel
             </Link>
@@ -432,7 +411,7 @@ export default function CreateTicketPage() {
                 isCategoriesLoading ||
                 isCategoriesError
               }
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-slate-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+              className="inline-flex items-center justify-center gap-2 rounded-xl bg-slate-900 px-5 py-2.5 text-sm font-medium text-white shadow-sm transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
             >
               {createTicketMutation.isPending ? (
                 <>
@@ -448,11 +427,10 @@ export default function CreateTicketPage() {
             </button>
           </div>
 
-          {/* Mutation error */}
           {createTicketMutation.isError && (
             <div
               role="alert"
-              className="mx-5 mb-5 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 sm:mx-7 sm:mb-7"
+              className="mx-5 mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700 sm:mx-7 sm:mb-7"
             >
               {createTicketMutation.error instanceof Error
                 ? createTicketMutation.error.message
